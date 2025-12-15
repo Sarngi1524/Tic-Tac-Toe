@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="window">
+
+  <!-- TITLE BAR -->
+  <div class="title-bar">
+    <span class="title">Tic Tac Toe</span>
+    <div class="controls">
+      <!-- controls removed for main window -->
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <p class="text-small">let’s play</p>
+    <p class="text-big">Tic-Tac-Toe</p>
+
+    <button class="start-btn" onclick="startGame()">Start</button>
+  </div>
+
+</div>
+<!-- FRAME 2 -->
+<div class="frame" id="frame-game">
+
+  <!-- TITLE BAR -->
+  <div class="title-bar">
+    <span class="title">Tic Tac Toe</span>
+    <div class="controls">
+      <img src="assets/minimize.png" alt="minimize" class="minimize-btn">
+      <img src="assets/close.png" alt="close" class="close-btn">
+    </div>
+  </div>
+
+  <!-- GAME CONTENT -->
+  <div class="game-content">
+
+    <!-- GAME BOARD -->
+    <div class="game-board">
+      <div class="cell" onclick="playMove(this,0)"></div>
+      <div class="cell" onclick="playMove(this,1)"></div>
+      <div class="cell" onclick="playMove(this,2)"></div>
+      <div class="cell" onclick="playMove(this,3)"></div>
+      <div class="cell" onclick="playMove(this,4)"></div>
+      <div class="cell" onclick="playMove(this,5)"></div>
+      <div class="cell" onclick="playMove(this,6)"></div>
+      <div class="cell" onclick="playMove(this,7)"></div>
+      <div class="cell" onclick="playMove(this,8)"></div>
+    </div>
+
+    <!-- PLAYER BAR -->
+    <div class="player-bar">
+      <div class="player">
+        <span>Me -</span>
+        <img src="assets/heart.png">
+      </div>
+
+      <div class="player">
+        <span>You -</span>
+        <img src="assets/ribbon.png">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FRAME 3: YOU LOST -->
+<div class="frame" id="frame-3">
+
+  <!-- TITLE BAR -->
+  <div class="title-bar">
+    <span class="title">Tic Tac Toe</span>
+    <div class="controls">
+      <img src="assets/minimize.png" alt="minimize" class="minimize-btn">
+      <img src="assets/close.png" alt="close" class="close-btn">
+    </div>
+  </div>
+
+  <!-- LOSE CONTENT -->
+  <div class="lose-content">
+    <div class="lose-card">
+
+      <p class="lose-title">You Lost!!</p>
+
+      <img src="assets/cat.png" class="lose-cat">
+
+      <p class="lose-text">
+        It's okay buddy<br>
+        Don't be sad!!
+      </p>
+
+      <div>
+        <button class="start-btn" onclick="resetGame(); switchFrame('frame-game')">Play Again</button>
+      </div>
+
+    </div>
+
+      <!-- FRAME 5: DRAW (moved out so it's not nested) -->
+  </div>
+
+  </div>
+
+  <!-- FRAME 5: DRAW -->
+  <div class="frame" id="frame-5">
+
+    <!-- TITLE BAR -->
+    <div class="title-bar">
+      <span class="title">It's a Draw!</span>
+      <div class="controls">
+        <img src="assets/minimize.png" alt="minimize" class="minimize-btn">
+        <img src="assets/close.png" alt="close" class="close-btn">
+      </div>
+    </div>
+
+    <!-- DRAW CONTENT -->
+    <div class="lose-content">
+      <div class="lose-card">
+
+        <p class="lose-title">It's a Draw!</p>
+
+        <img src="assets/love.png" class="lose-cat">
+
+        <p class="lose-text">
+          It's a tie!It's okay — we both get chocolate together.
+        </p>
+
+        <div>
+          <button class="start-btn" onclick="resetGame(); switchFrame('frame-game')">Play Again</button>
+          
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="frame" id="frame-4">
+<!-- FRAME 4: YOU WON-->
+  <!-- TITLE BAR -->
+  <div class="title-bar">
+    <span class="title">Tic Tac Toe</span>
+    <div class="controls">
+      <img src="assets/minimize.png" alt="minimize" class="minimize-btn">
+      <img src="assets/close.png" alt="close" class="close-btn">
+    </div>
+  </div>
+
+  <!-- WIN CONTENT -->
+  <div class="lose-content">
+    <div class="lose-card">
+
+      <p class="lose-title">Tic Tac Toe</p>
+
+      <img src="assets/ghost.png" class="lose-cat">
+
+      <p class="lose-text">
+        Nice one!<br>
+        your prize is free<br>
+         chocolate from me!!!
+      </p>
+
+      <div>
+        <button class="start-btn" onclick="resetGame(); switchFrame('frame-game')">Play Again</button>
+        
+  
+
+    </div>
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

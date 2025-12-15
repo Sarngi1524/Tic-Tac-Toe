@@ -1,0 +1,14 @@
+{
+  "name": "tic-tac-toe-desktop",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe wrapped in Electron for desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . TicTacToe --platform=win32 --arch=x64 --out=dist --overwrite"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-packager": "^17.1.0"
+  }
+}

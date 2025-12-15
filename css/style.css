@@ -1,0 +1,256 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: transparent; /* show desktop underneath */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family:'Pixelify Sans', cursive, sans-serif;
+}
+
+/* MAIN WINDOW */
+.window {
+  width: 340px;
+  height: 420px;
+  background: #ffb6d9;
+  border: 6px solid #D42D9F;
+  border-radius: 14px;
+  box-shadow:  0px 8px 8px #ff9acb74;
+  
+}
+
+/* TITLE BAR */
+.title-bar {
+  height: 50px;
+  background: #ff8fc4;
+  border-bottom: 4px solid #D42D9F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+ 
+}
+
+/* allow dragging the window by the title bar when Electron is frameless */
+.title-bar {
+  -webkit-app-region: drag;
+}
+
+/* interactive controls should not be draggable */
+.controls img, .btn, .start-btn {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 35px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #D42D9F;
+   
+}
+
+/* WINDOW CONTROLS */
+.controls img {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+/* CONTENT AREA */
+.content {
+  height: calc(100% - 70px);
+  background: url("../assets/background.png") center/cover no-repeat;
+  border: 3px solid #D42D9F;
+  margin: 12px;
+  padding-top: 70px;
+  text-align: center;
+  border-radius: 14px;
+}
+
+/* TEXT */
+.text-small {
+  font-size: 25px;
+  color: #D42D9F;
+  margin-bottom: 10px;
+   font-family:'Pixelify Sans', cursive, sans-serif;
+}
+
+.text-big {
+  font-size: 25px;
+  color: #D42D9F;
+  margin-bottom: 40px;
+   font-family:'Pixelify Sans', cursive, sans-serif;
+}
+
+/* START BUTTON */
+.start-btn {
+  background: #ff9acb;
+  border: 2px solid #D42D9F;
+  border-radius: 14px;
+  padding: 12px 28px;
+  font-size: 18px;
+   font-family:'Pixelify Sans', cursive, sans-serif;
+  color: #D42D9F;
+  cursor: pointer;
+  box-shadow: 0 4px 4px #ff9acb;
+  margin-bottom: 15px;
+}
+
+.start-btn:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+/* FRAME HANDLING 2 */
+.frame {
+  display: none;
+}
+
+.frame.active {
+  display: block;
+  width: 340px;
+  height: 420px;
+  background: #ffb6d9;
+  border: 6px solid #D42D9F;
+  border-radius: 14px;
+  box-shadow:  8px 8px 0 #ff9acb74;
+  transition: opacity 160ms ease;
+}
+
+/* Minimized / closed states for windows/frames */
+.window.minimized .content,
+.frame.minimized .game-content,
+.frame.minimized .lose-content {
+  display: none;
+}
+
+.window.closed,
+.frame.closed {
+  display: none !important;
+}
+
+
+/* GAME CONTENT AREA */
+.game-content {
+  margin: 12px;
+  height: calc(100% - 74px);
+  border: 3px solid #D42D9F;
+  border-radius: 14px;
+  background: url("../assets/background.png") center/cover no-repeat;
+  padding: 16px;
+}
+
+/* GAME BOARD */
+.game-board {
+  width: 220px;
+  height: 220px;
+  margin: 10px auto 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* make rows equal so each cell is a fixed square */
+  grid-template-rows: repeat(3, 1fr);
+
+}
+
+.cell {
+  border: 1.5px solid #D42D9F;
+  border-radius: 14px;
+  background: rgba(255, 63, 159, 0.307);
+  cursor: pointer;
+  /* ensure cell fills its grid area and centers content without resizing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.cell img {
+  /* scale with cell so inserting an image won't change layout */
+
+  max-width: 70px;
+  max-height: 70px;
+}
+
+/* PLAYER BAR */
+.player-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  border: 3px solid #D42D9F;
+  border-radius: 14px;
+  background: #ffb6d9;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  color: #D42D9F;
+}
+
+.player img {
+  width: 40px;
+  height: 40px;
+}
+
+/* LOSE FRAME3 CONTENT  */
+.lose-content {
+  margin: 12px;
+  height: calc(100% - 74px);
+  border: 3px solid #D42D9F;
+  border-radius: 14px;
+  background: url("../assets/background.png") center/cover no-repeat;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* INNER CARD */
+.lose-card {
+  width: 260px;
+  padding: 0px;
+  background:  rgba(255, 63, 159, 0.307);
+  border: 1px solid #D42D9F;
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* TEXT */
+.lose-title {
+  font-size: 20px;
+  color: #D42D9F;
+  margin-bottom: 10px;
+}
+
+.lose-text {
+  font-size: 18px;
+  color: #D42D9F;
+  line-height: 1;
+  margin-top: 0px;
+}
+
+/* CAT IMAGE */
+.lose-cat {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 6px auto;
+}

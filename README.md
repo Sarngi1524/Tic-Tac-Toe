@@ -30,8 +30,6 @@ npm run package-win
 ## Project description
 Tic Tac Toe is a simple two-player game implemented with HTML, CSS, and JavaScript, packaged into a desktop application with Electron. The app supports local play on a single machine.
 
-## Screenshot
-![Tic Tac Toe screenshot](assets/background.png)
 
 ## Tech
 - Electron
